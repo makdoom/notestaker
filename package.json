@@ -1,0 +1,15 @@
+{
+  "name": "notes-taker",
+  "version": "1.0.0",
+  "description": "A notes taking application using Vanilla Javascript",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "gh-pages -d dist"
+  },
+  "author": "Makdoom Shaikh",
+  "license": "MIT",
+  "homepage": "https://makdoom.github.io/notes_taker",
+  "dependencies": {
+    "gh-pages": "^2.2.0"
+  }
+}
