@@ -23,7 +23,14 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    transition: 0.5s;
 
+    // blur events on click
+    &#blur.active {
+      filter: blur(15px);
+      pointer-events: none;
+      user-select: none;
+    }
     // Notes Header
     .header {
       text-align: center;
@@ -54,15 +61,14 @@ body {
       justify-content: space-between;
 
       .add-btn {
-        margin-left: 2rem;
-        padding: 7px 16px;
-        font-size: 0.9rem;
-        text-transform: uppercase;
-        background: #000;
-        border: none;
-        outline: none;
-        cursor: pointer;
+        position: relative;
+        padding: 5px 20px;
+        display: inline-block;
+        text-decoration: none;
         color: #fff;
+        background: #000;
+        text-align: center;
+        line-height: 30px;
         @include easeOut();
 
         &:hover {
@@ -70,33 +76,50 @@ body {
         }
       }
 
-      .search-btn {
-        border: 1px solid #000;
-        width: 35%;
-        border-radius: 30px;
+      .search-box {
+        background: #000;
+        height: 40px;
+        border-radius: 40px;
+        padding: 0;
 
-        .search-icon {
-          color: #fff;
+        ::placeholder {
+          color: white;
+        }
+
+        .input-box {
+          outline: none;
+          border: none;
+          background: none;
+          float: left;
           font-size: 0.9rem;
+          color: #fff;
+          padding: 0;
+          @include easeOut();
+          width: 0;
+          line-height: 40px;
+        }
+        .search-btn {
+          color: #ffff;
           float: right;
-          width: 30px;
-          height: 30px;
+          text-decoration: none;
+          width: 40px;
+          height: 40px;
+          line-height: 40px;
           text-align: center;
-          line-height: 30px;
           border-radius: 50%;
-          background: #000;
-          cursor: pointer;
-          // display: flex;
-          // justify-content: center;
-          // align-items: center;
+          @include easeOut();
+        }
+
+        &:hover .input-box {
+          width: 180px;
+          padding-left: 20px;
+        }
+
+        &:hover .search-btn {
+          background: #262626;
+          color: $primary-color;
         }
       }
-      // .find-btn {
-      //   width: 30%;
-      //   padding: 4px 8px;
-      //   outline: none;
-      //   font-size: 0.9rem;
-      // }
     }
 
     // Notes Body
@@ -141,6 +164,77 @@ body {
           }
         }
       }
+    }
+  }
+
+  // Popup
+  #popup {
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 40px;
+    background: #fff;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+
+    &.active {
+      top: 50%;
+      visibility: visible;
+      opacity: 1;
+    }
+
+    ::placeholder {
+      color: #000;
+    }
+
+    .title {
+      background: none;
+      border: none;
+      width: 100%;
+      outline: none;
+      border-bottom: 1px solid black;
+      margin-bottom: 10px;
+      padding: 5px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    .note {
+      border: none;
+      outline: none;
+      background: none;
+      padding: 5px;
+      width: 100%;
+      font-size: 0.9rem;
+      font-family: "Poppins", sans-serif;
+      height: 200px;
+      margin: 10px 0;
+    }
+
+    .add {
+      display: inline-block;
+      padding: 5px 20px;
+      text-decoration: none;
+      text-align: center;
+      background: #000;
+      color: #fff;
+      @include easeOut();
+
+      &:hover {
+        background: $primary-color;
+      }
+    }
+    .error {
+      color: red;
+      margin: 4px 0;
     }
   }
 }

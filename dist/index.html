@@ -13,19 +13,19 @@
     <title>Notes Taker</title>
   </head>
   <body>
-    <div class="container">
+    <div class="container" id="blur">
       <div class="header">
         <h2>Notes <span>Taker</span></h2>
         <p>Note Once Never Forget</p>
       </div>
 
       <div class="notes-input">
-        <button class="add-btn">
+        <a href="#" onclick="toggle()" class="add-btn">
           Add Notes &nbsp; <i class="fas fa-plus"></i>
-        </button>
-        <div class="search-btn">
-          <input type="text" placeholder="Find Notes" class="find-btn" />
-          <a class="search-icon" href="#"><i class="fas fa-search"></i></a>
+        </a>
+        <div class="search-box">
+          <input type="text" placeholder="Find Notes" class="input-box" />
+          <a class="search-btn" href="#"><i class="fas fa-search"></i></a>
         </div>
       </div>
 
@@ -39,43 +39,13 @@
           </div>
           <button class="remove-btn">Delete</button>
         </div>
-        <div class="note-card">
-          <div class="note-title">Title 1</div>
-          <div class="note-desc">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi
-            ducimus minus dolore sint numquam optio quia, tenetur possimus
-            beatae mollitia veritatis, fugit inventore quos iusto.
-          </div>
-          <button class="remove-btn">Delete</button>
-        </div>
-        <div class="note-card">
-          <div class="note-title">Title 1</div>
-          <div class="note-desc">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi
-            ducimus minus dolore sint numquam optio quia, tenetur possimus
-            beatae mollitia veritatis, fugit inventore quos iusto.
-          </div>
-          <button class="remove-btn">Delete</button>
-        </div>
-        <div class="note-card">
-          <div class="note-title">Title 1</div>
-          <div class="note-desc">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi
-            ducimus minus dolore sint numquam optio quia, tenetur possimus
-            beatae mollitia veritatis, fugit inventore quos iusto.
-          </div>
-          <button class="remove-btn">Delete</button>
-        </div>
-        <div class="note-card">
-          <div class="note-title">Title 1</div>
-          <div class="note-desc">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi
-            ducimus minus dolore sint numquam optio quia, tenetur possimus
-            beatae mollitia veritatis, fugit inventore quos iusto.
-          </div>
-          <button class="remove-btn">Delete</button>
-        </div>
       </div>
+    </div>
+    <div id="popup">
+      <input placeholder="Title" type="text" class="title" required />
+      <textarea placeholder="Description" class="note" required></textarea>
+      <div class="error"></div>
+      <a href="#" class="add"> Add</a>
     </div>
     <script src="js/app.js"></script>
   </body>

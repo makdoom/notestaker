@@ -28,6 +28,18 @@ body .container {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+body .container#blur.active {
+  -webkit-filter: blur(15px);
+          filter: blur(15px);
+  pointer-events: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 body .container .header {
@@ -63,15 +75,14 @@ body .container .notes-input {
 }
 
 body .container .notes-input .add-btn {
-  margin-left: 2rem;
-  padding: 7px 16px;
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  background: #000;
-  border: none;
-  outline: none;
-  cursor: pointer;
+  position: relative;
+  padding: 5px 20px;
+  display: inline-block;
+  text-decoration: none;
   color: #fff;
+  background: #000;
+  text-align: center;
+  line-height: 30px;
   -webkit-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
 }
@@ -80,23 +91,64 @@ body .container .notes-input .add-btn:hover {
   background: #ee0063;
 }
 
-body .container .notes-input .search-btn {
-  border: 1px solid #000;
-  width: 35%;
-  border-radius: 30px;
+body .container .notes-input .search-box {
+  background: #000;
+  height: 40px;
+  border-radius: 40px;
+  padding: 0;
 }
 
-body .container .notes-input .search-btn .search-icon {
-  color: #fff;
+body .container .notes-input .search-box ::-webkit-input-placeholder {
+  color: white;
+}
+
+body .container .notes-input .search-box :-ms-input-placeholder {
+  color: white;
+}
+
+body .container .notes-input .search-box ::-ms-input-placeholder {
+  color: white;
+}
+
+body .container .notes-input .search-box ::placeholder {
+  color: white;
+}
+
+body .container .notes-input .search-box .input-box {
+  outline: none;
+  border: none;
+  background: none;
+  float: left;
   font-size: 0.9rem;
+  color: #fff;
+  padding: 0;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  width: 0;
+  line-height: 40px;
+}
+
+body .container .notes-input .search-box .search-btn {
+  color: #ffff;
   float: right;
-  width: 30px;
-  height: 30px;
+  text-decoration: none;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
   text-align: center;
-  line-height: 30px;
   border-radius: 50%;
-  background: #000;
-  cursor: pointer;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+body .container .notes-input .search-box:hover .input-box {
+  width: 180px;
+  padding-left: 20px;
+}
+
+body .container .notes-input .search-box:hover .search-btn {
+  background: #262626;
+  color: #ee0063;
 }
 
 body .container .notes-body {
@@ -145,4 +197,98 @@ body .container .notes-body .note-card .remove-btn {
 
 body .container .notes-body .note-card .remove-btn:hover {
   background: #ee0063;
+}
+
+body #popup {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 500px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  padding: 40px;
+  background: #fff;
+  -webkit-box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+body #popup.active {
+  top: 50%;
+  visibility: visible;
+  opacity: 1;
+}
+
+body #popup ::-webkit-input-placeholder {
+  color: #000;
+}
+
+body #popup :-ms-input-placeholder {
+  color: #000;
+}
+
+body #popup ::-ms-input-placeholder {
+  color: #000;
+}
+
+body #popup ::placeholder {
+  color: #000;
+}
+
+body #popup .title {
+  background: none;
+  border: none;
+  width: 100%;
+  outline: none;
+  border-bottom: 1px solid black;
+  margin-bottom: 10px;
+  padding: 5px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+body #popup .note {
+  border: none;
+  outline: none;
+  background: none;
+  padding: 5px;
+  width: 100%;
+  font-size: 0.9rem;
+  font-family: "Poppins", sans-serif;
+  height: 200px;
+  margin: 10px 0;
+}
+
+body #popup .add {
+  display: inline-block;
+  padding: 5px 20px;
+  text-decoration: none;
+  text-align: center;
+  background: #000;
+  color: #fff;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+body #popup .add:hover {
+  background: #ee0063;
+}
+
+body #popup .error {
+  color: red;
+  margin: 4px 0;
 }
