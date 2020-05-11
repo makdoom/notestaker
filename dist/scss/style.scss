@@ -124,43 +124,49 @@ body {
 
     // Notes Body
     .notes-body {
-      margin: 40px 40px 0 40px;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-gap: 1rem;
-      grid-auto-rows: minmax(150px, auto);
+      p {
+        text-align: center;
+      }
 
-      .note-card {
-        padding: 1rem;
-        box-shadow: 8px 10px 15px #c5c6c6;
-        @include easeOut();
+      .notes {
+        margin: 40px 40px 0 40px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 1rem;
+        // grid-auto-rows: minmax(150px, auto);
 
-        .note-title {
-          font-size: 1.3rem;
-          font-weight: 600;
-          letter-spacing: 1px;
-          padding: 5px 0;
-        }
-
-        .note-desc {
-          font-size: 0.9rem;
-          padding: 8px 0;
-        }
-
-        .remove-btn {
-          padding: 6px 19px;
-          margin: 5px 0;
-          font-size: 0.9rem;
-          text-transform: uppercase;
-          background: #000;
-          color: #fff;
-          border: none;
-          cursor: pointer;
-          outline: none;
+        .note-card {
+          padding: 1rem;
+          box-shadow: 8px 10px 15px #c5c6c6;
           @include easeOut();
 
-          &:hover {
-            background: $primary-color;
+          .note-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            padding: 5px 0;
+          }
+
+          .note-desc {
+            font-size: 0.9rem;
+            padding: 8px 0;
+          }
+
+          .remove-btn {
+            padding: 6px 19px;
+            margin: 5px 0;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            background: #000;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            outline: none;
+            @include easeOut();
+
+            &:hover {
+              background: $primary-color;
+            }
           }
         }
       }

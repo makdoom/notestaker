@@ -151,17 +151,20 @@ body .container .notes-input .search-box:hover .search-btn {
   color: #ee0063;
 }
 
-body .container .notes-body {
+body .container .notes-body p {
+  text-align: center;
+}
+
+body .container .notes-body .notes {
   margin: 40px 40px 0 40px;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (1fr)[3];
       grid-template-columns: repeat(3, 1fr);
   grid-gap: 1rem;
-  grid-auto-rows: minmax(150px, auto);
 }
 
-body .container .notes-body .note-card {
+body .container .notes-body .notes .note-card {
   padding: 1rem;
   -webkit-box-shadow: 8px 10px 15px #c5c6c6;
           box-shadow: 8px 10px 15px #c5c6c6;
@@ -169,19 +172,19 @@ body .container .notes-body .note-card {
   transition: all 0.4s ease-in-out;
 }
 
-body .container .notes-body .note-card .note-title {
+body .container .notes-body .notes .note-card .note-title {
   font-size: 1.3rem;
   font-weight: 600;
   letter-spacing: 1px;
   padding: 5px 0;
 }
 
-body .container .notes-body .note-card .note-desc {
+body .container .notes-body .notes .note-card .note-desc {
   font-size: 0.9rem;
   padding: 8px 0;
 }
 
-body .container .notes-body .note-card .remove-btn {
+body .container .notes-body .notes .note-card .remove-btn {
   padding: 6px 19px;
   margin: 5px 0;
   font-size: 0.9rem;
@@ -195,7 +198,7 @@ body .container .notes-body .note-card .remove-btn {
   transition: all 0.4s ease-in-out;
 }
 
-body .container .notes-body .note-card .remove-btn:hover {
+body .container .notes-body .notes .note-card .remove-btn:hover {
   background: #ee0063;
 }
 
