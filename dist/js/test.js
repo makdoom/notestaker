@@ -16,46 +16,61 @@ toggle = (e) => {
 };
 addBtn.addEventListener("click", () => {
   if (noteTitle.value !== "" && note.value !== "") {
+    let notes = localStorage.getItem();
+    if (notes == null) {
+      console.log("emoty");
+    }
     const data = {
       title: noteTitle.value,
       note: note.value,
     };
 
-    // show notes in DOM
-    showNotes(data);
+    id = Math.floor(Math.random() * 1000);
+    localStorage.setItem(id, JSON.stringify(data));
 
-    // save notes in localStorage
-    localStorage.setItem("Notes", notesBody.innerHTML);
-
+    showNote(id);
+    // console.log(JSON.parse(localStorage.getItem(id)));
     blur.classList.remove("active");
     popup.classList.remove("active");
-  } else {
-    errorMessage.innerHTML = "Please fill all the required fields !! ";
   }
 });
 
+function showNote(id) {}
+
+//   // show notes in DOM
+//   showNotes(data);
+
+//   // save notes in localStorage
+//   localStorage.setItem("Notes", notesBody.innerHTML);
+
+//   blur.classList.remove("active");
+//   popup.classList.remove("active");
+// } else {
+//   errorMessage.innerHTML = "Please fill all the required fields !! ";
+// }
+
 // checking for notes in localStorage
-const saved = localStorage.getItem("Notes");
-if (saved) {
-  notesBody.innerHTML = saved;
-} else {
-  msg.innerHTML = ` There's Nothing to Show, Please Use "Add Note" Button to Add Notes !!!`;
-}
+// const saved = localStorage.getItem("Notes");
+// if (saved) {
+//   notesBody.innerHTML = saved;
+// } else {
+//   msg.innerHTML = ` There's Nothing to Show, Please Use "Add Note" Button to Add Notes !!!`;
+// }
 
-showNotes = (data) => {
-  notesBody.insertAdjacentHTML(
-    "beforeend",
-    `<div class="note-card">
-            <div class="note-title">${data.title}</div>
-            <div class="note-desc">
-                ${data.note}
-            </div>
-            <button class="remove-btn">Delete</button>
-        </div>`
-  );
+// showNotes = (data) => {
+//   notesBody.insertAdjacentHTML(
+//     "beforeend",
+//     `<div class="note-card">
+//             <div class="note-title">${data.title}</div>
+//             <div class="note-desc">
+//                 ${data.note}
+//             </div>
+//             <button class="remove-btn">Delete</button>
+//         </div>`
+//   );
 
-  noteTitle.value = "";
-  note.value = "";
-  msg.innerHTML = "";
-  errorMessage.innerHTML = "";
-};
+//   noteTitle.value = "";
+//   note.value = "";
+//   msg.innerHTML = "";
+//   errorMessage.innerHTML = "";
+// };
