@@ -124,8 +124,11 @@ body {
 
     // Notes Body
     .notes-body {
-      p {
+      .msg {
         text-align: center;
+        margin: 3rem;
+        font-size: 1.1rem;
+        color: $primary-color;
       }
 
       .notes {
@@ -133,7 +136,7 @@ body {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         grid-gap: 1rem;
-        // grid-auto-rows: minmax(150px, auto);
+        grid-auto-rows: minmax(150px, auto);
 
         .note-card {
           padding: 1rem;
