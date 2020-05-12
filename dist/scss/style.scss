@@ -1,9 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
-
-$primary-color: #ee0063;
-@mixin easeOut {
-  transition: all 0.4s ease-in-out;
-}
+@import "config";
 
 * {
   margin: 0;
@@ -94,8 +89,8 @@ body {
           font-size: 0.9rem;
           color: #fff;
           padding: 0;
+          padding-left: 10px;
           @include easeOut();
-          width: 0;
           line-height: 40px;
         }
         .search-btn {
@@ -109,13 +104,7 @@ body {
           border-radius: 50%;
           @include easeOut();
         }
-
-        &:hover .input-box {
-          width: 180px;
-          padding-left: 20px;
-        }
-
-        &:hover .search-btn {
+        &:focus .search-btn {
           background: #262626;
           color: $primary-color;
         }
@@ -133,12 +122,13 @@ body {
 
       .notes {
         margin: 40px 40px 0 40px;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-gap: 1rem;
-        grid-auto-rows: minmax(150px, auto);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
 
         .note-card {
+          margin: 20px;
+          width: 250px;
           padding: 1rem;
           box-shadow: 8px 10px 15px #c5c6c6;
           @include easeOut();
@@ -247,3 +237,5 @@ body {
     }
   }
 }
+
+@import "mobile";

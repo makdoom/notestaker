@@ -122,9 +122,9 @@ body .container .notes-input .search-box .input-box {
   font-size: 0.9rem;
   color: #fff;
   padding: 0;
+  padding-left: 10px;
   -webkit-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
-  width: 0;
   line-height: 40px;
 }
 
@@ -141,12 +141,7 @@ body .container .notes-input .search-box .search-btn {
   transition: all 0.4s ease-in-out;
 }
 
-body .container .notes-input .search-box:hover .input-box {
-  width: 180px;
-  padding-left: 20px;
-}
-
-body .container .notes-input .search-box:hover .search-btn {
+body .container .notes-input .search-box:focus .search-btn {
   background: #262626;
   color: #ee0063;
 }
@@ -160,15 +155,19 @@ body .container .notes-body .msg {
 
 body .container .notes-body .notes {
   margin: 40px 40px 0 40px;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (1fr)[3];
-      grid-template-columns: repeat(3, 1fr);
-  grid-gap: 1rem;
-  grid-auto-rows: minmax(150px, auto);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 body .container .notes-body .notes .note-card {
+  margin: 20px;
+  width: 250px;
   padding: 1rem;
   -webkit-box-shadow: 8px 10px 15px #c5c6c6;
           box-shadow: 8px 10px 15px #c5c6c6;
@@ -298,4 +297,35 @@ body #popup .add:hover {
 body #popup .error {
   color: red;
   margin: 4px 0;
+}
+
+@media screen and (min-width: 1171px) {
+  .notes {
+    margin: 20px 20px 0 20px;
+    -ms-grid-columns: (1fr)[4];
+        grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .notes-input {
+    margin-bottom: 0;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .notes-input .add-btn {
+    float: none;
+  }
+  .notes-input .search-box {
+    margin: 20px 0;
+  }
+  #popup.activ {
+    width: 200px;
+    background: red;
+  }
 }
