@@ -1,0 +1,27 @@
+@include mediaXl() {
+  .notes {
+    margin: 20px 20px 0 20px;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@include mediaSm() {
+  .notes-input {
+    margin-bottom: 0;
+    flex-direction: column;
+    justify-content: center;
+    // background: red;
+
+    .add-btn {
+      float: none;
+    }
+    .search-box {
+      margin: 20px 0;
+    }
+  }
+
+  #popup.activ {
+    width: 200px;
+    background: red;
+  }
+}

@@ -1,0 +1,241 @@
+@import "config";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  line-height: 1.5;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: #f5f5f5;
+
+  .container {
+    width: 100%;
+    display: flex;
+    margin-bottom: 30px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+
+    // blur events on click
+    &#blur.active {
+      filter: blur(15px);
+      pointer-events: none;
+      user-select: none;
+    }
+    // Notes Header
+    .header {
+      text-align: center;
+      margin: 25px;
+
+      h2 {
+        font-size: 2rem;
+        letter-spacing: 5px;
+        font-weight: 700;
+        text-transform: uppercase;
+
+        span {
+          color: $primary-color;
+        }
+      }
+
+      p {
+        font-size: 0.9rem;
+        letter-spacing: 2px;
+      }
+    }
+
+    // Notes inputs
+    .notes-input {
+      width: 70%;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+
+      .add-btn {
+        position: relative;
+        padding: 5px 20px;
+        display: inline-block;
+        text-decoration: none;
+        color: #fff;
+        background: #000;
+        text-align: center;
+        line-height: 30px;
+        @include easeOut();
+
+        &:hover {
+          background: $primary-color;
+        }
+      }
+
+      .search-box {
+        background: #000;
+        height: 40px;
+        border-radius: 40px;
+        padding: 0;
+
+        ::placeholder {
+          color: white;
+        }
+
+        .input-box {
+          outline: none;
+          border: none;
+          background: none;
+          float: left;
+          font-size: 0.9rem;
+          color: #fff;
+          padding: 0;
+          padding-left: 10px;
+          @include easeOut();
+          line-height: 40px;
+        }
+        .search-btn {
+          color: #ffff;
+          float: right;
+          text-decoration: none;
+          width: 40px;
+          height: 40px;
+          line-height: 40px;
+          text-align: center;
+          border-radius: 50%;
+          @include easeOut();
+        }
+        &:focus .search-btn {
+          background: #262626;
+          color: $primary-color;
+        }
+      }
+    }
+
+    // Notes Body
+    .notes-body {
+      .msg {
+        text-align: center;
+        margin: 3rem;
+        font-size: 1.1rem;
+        color: $primary-color;
+      }
+
+      .notes {
+        margin: 40px 40px 0 40px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        .note-card {
+          margin: 20px;
+          width: 250px;
+          padding: 1rem;
+          box-shadow: 8px 10px 15px #c5c6c6;
+          @include easeOut();
+
+          .note-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            padding: 5px 0;
+          }
+
+          .note-desc {
+            font-size: 0.9rem;
+            padding: 8px 0;
+          }
+
+          .remove-btn {
+            padding: 6px 19px;
+            margin: 5px 0;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            background: #000;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            outline: none;
+            @include easeOut();
+
+            &:hover {
+              background: $primary-color;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Popup
+  #popup {
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 40px;
+    background: #fff;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+
+    &.active {
+      top: 50%;
+      visibility: visible;
+      opacity: 1;
+    }
+
+    ::placeholder {
+      color: #000;
+    }
+
+    .title {
+      background: none;
+      border: none;
+      width: 100%;
+      outline: none;
+      border-bottom: 1px solid black;
+      margin-bottom: 10px;
+      padding: 5px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    .note {
+      border: none;
+      outline: none;
+      background: none;
+      padding: 5px;
+      width: 100%;
+      font-size: 0.9rem;
+      font-family: "Poppins", sans-serif;
+      height: 200px;
+      margin: 10px 0;
+    }
+
+    .add {
+      display: inline-block;
+      padding: 5px 20px;
+      text-decoration: none;
+      text-align: center;
+      background: #000;
+      color: #fff;
+      @include easeOut();
+
+      &:hover {
+        background: $primary-color;
+      }
+    }
+    .error {
+      color: red;
+      margin: 4px 0;
+    }
+  }
+}
+
+@import "mobile";
