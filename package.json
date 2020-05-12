@@ -8,7 +8,7 @@
   },
   "author": "Makdoom Shaikh",
   "license": "MIT",
-  "homepage": "https://makdoom.github.io/notes_taker",
+  "homepage": "https://makdoom.github.io/notestaker",
   "dependencies": {
     "gh-pages": "^2.2.0"
   }
